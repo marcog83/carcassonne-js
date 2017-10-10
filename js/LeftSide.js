@@ -2,6 +2,7 @@
  * Created by marcogobbi on 10/10/2017.
  */
 import Side from "./Side";
+import LeftSideConnections from "./LeftSideConnections";
 export default class LeftSide extends Side {
     constructor(src) {
         super(src);

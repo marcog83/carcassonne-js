@@ -5,7 +5,7 @@ import Side from "./Side";
 export default class SideDecorator extends Side {
     constructor(src) {
         super(src);
-        this.side_
+        this.side_;
         if (src instanceof Side) {
             this.side_ = src;
         } else if (src instanceof SideDecorator) {

@@ -57,7 +57,7 @@ export default class Game {
             // Cycle through players continuously until there are no more tiles
             var l = this.players_.length;
             for (var i = 0; i < l; i++) {
-                if (!(this.bag_.IsEmpty()){
+                if (!this.bag_.IsEmpty()){
                     console.log(`It is the ${i}'s turn.\n`);
 
 
@@ -112,7 +112,7 @@ export default class Game {
             // accept input from user as to where the tile will be placed.
             console.log("(-1 to rotate): ");
 
-            var i;
+            var i=0;
             //std::cin >> i;
 
 
@@ -121,7 +121,7 @@ export default class Game {
                 continue;
             }
 
-            choice = this.surface_.open_positions().at(i);
+            choice = this.surface_.open_positions()[i];
             if (this.surface_.IsTileFit(choice, this.current_tile_)) {
                 this.surface_.PlaceTile(choice, this.current_tile_);
                 break;
