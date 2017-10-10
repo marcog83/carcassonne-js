@@ -1,36 +1,36 @@
+/**
+ * Created by marcogobbi on 10/10/2017.
+ */
 import SideConnections from "./SideConnections";
-
-export default class BottomSideConnections extends SideConnections {
+export default class LeftSideConnections extends SideConnections {
     constructor(src) {
         super(src);
-        if (src) {
-            this.CopyFrom(src);
-        }
 
     }
 
     Clone() {
-        return new BottomSideConnections(this);
+        return new LeftSideConnections(this);
     }
 
     ToStringVector() {
         var connections = [];
 
-        connections.push("Bottom(itself)");
+        connections.push("Left(itself)");
 
         if (this.clockwise_) {
-            connections.push("Left");
-        }
-
-        if (this.across_) {
             connections.push("Top");
         }
 
-        if (this.counterclockwise_) {
+        if (this.across_) {
             connections.push("Right");
+        }
+
+        if (this.counterclockwise_) {
+            connections.push("Bottom");
         }
 
         return connections;
 
     }
+
 }

@@ -3,9 +3,14 @@ import SideConnections from "./SideConnections";
 export default class Side {
     constructor(src) {
         this.connections_ = new SideConnections();
-        this.CopyFrom(src);
-    }
+        if(src){
+            this.CopyFrom(src);
+        }
 
+    }
+    Clone(){
+        return 0;
+    }
     CopyFrom(rhs) {
 
     }
