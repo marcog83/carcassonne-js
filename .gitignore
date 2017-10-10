@@ -1,0 +1,12 @@
+# Created by .ignore support plugin (hsz.mobi)
+carcassonne-master/.cdtbuild
+carcassonne-master/.cdtproject
+carcassonne-master/.project
+carcassonne-master/.gitignore
+.idea/carcassonne-js.iml
+.idea/encodings.xml
+.idea/inspectionProfiles/
+.idea/misc.xml
+.idea/modules.xml
+.idea/workspace.xml
+carcassonne-master/.settings/
