@@ -1,3 +1,5 @@
+import {shuffle} from "./utility";
+
 export default class Bag {
     constructor() {
 
@@ -8,7 +10,7 @@ export default class Bag {
     }
 
     Shuffle() {
-        utility.shuffle(this.tiles_);
+        this.tiles_=shuffle(this.tiles_);
     }
 
     Draw() {
