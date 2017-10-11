@@ -1,6 +1,6 @@
-import ValidTiles from "./ValidTiles"
+const ValidTiles=require( "./ValidTiles");
 
-export default class TileSet {
+module.exports= class TileSet {
     constructor() {
         this.bagable_tiles_ = [];
         this.valid_tiles_ = new ValidTiles();

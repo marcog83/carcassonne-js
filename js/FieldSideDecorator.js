@@ -1,8 +1,9 @@
-import TerrainSideDecorator from "./TerrainSideDecorator";
-import Side from "./Side";
-import RoadSideDecorator from "./RoadSideDecorator";
-import CitySideDecorator from "./CitySideDecorator";
-export default class FieldSideDecorator extends TerrainSideDecorator {
+const TerrainSideDecorator=require( "./TerrainSideDecorator");
+const Side=require( "./Side");
+const RoadSideDecorator=require( "./RoadSideDecorator");
+const CitySideDecorator=require( "./CitySideDecorator");
+const FieldSegment=require( "./terrain/FieldSegment");
+module.exports= class FieldSideDecorator extends TerrainSideDecorator {
     constructor(src) {
         super(src);
         if (src instanceof FieldSideDecorator) {

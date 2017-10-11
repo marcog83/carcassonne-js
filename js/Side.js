@@ -1,11 +1,11 @@
-import SideConnections from "./SideConnections";
+const SideConnections=require( "./SideConnections");
 
-export default class Side {
+module.exports= class Side {
     constructor(src) {
         this.connections_ = new SideConnections();
-        if(src){
+       /* if(src){
             this.CopyFrom(src);
-        }
+        }*/
 
     }
     Clone(){

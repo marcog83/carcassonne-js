@@ -1,6 +1,6 @@
-import SideConnections from "./SideConnections";
+const SideConnections=require( "./SideConnections");
 
-export default class BottomSideConnections extends SideConnections {
+module.exports= class BottomSideConnections extends SideConnections {
     constructor(src) {
         super(src);
         if (src) {

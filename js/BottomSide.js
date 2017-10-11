@@ -1,8 +1,8 @@
-import Side from "./Side";
-import BottomSideConnections from "./BottomSideConnections";
-import TerrainSegment from "./terrain/TerrainSegment";
+const Side=require( "./Side");
+const BottomSideConnections=require( "./BottomSideConnections");
+const TerrainSegment=require( "./terrain/TerrainSegment");
 
-export default class BottomSide extends Side {
+module.exports= class BottomSide extends Side {
     constructor(...args) {
         super();
         this.middle_ = new TerrainSegment();

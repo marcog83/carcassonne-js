@@ -1,10 +1,10 @@
 /**
  * Created by marcogobbi on 10/10/2017.
  */
-import Side from "./Side";
-import RightSideConnections from "./RightSideConnections";
-import TerrainSegment from "./terrain/TerrainSegment";
-export default class RightSide extends Side {
+const Side=require( "./Side");
+const RightSideConnections=require( "./RightSideConnections");
+const TerrainSegment=require( "./terrain/TerrainSegment");
+module.exports= class RightSide extends Side {
     constructor(src) {
         super(src);
         this.middle_ = new TerrainSegment();

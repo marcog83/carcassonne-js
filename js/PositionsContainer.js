@@ -1,7 +1,7 @@
 /**
  * Created by marcogobbi on 10/10/2017.
  */
-export default class PositionsContainer extends Array {
+module.exports= class PositionsContainer extends Array {
 
     ToStringVector() {
         let tmp_vector = [];

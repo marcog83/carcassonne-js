@@ -1,5 +1,5 @@
-import Player from "./Player"
-export default class GreenPlayer extends Player {
+const Player=require( "./Player")
+module.exports= class GreenPlayer extends Player {
     toString() {
         return "Green Player";
     }

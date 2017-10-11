@@ -1,9 +1,9 @@
-import FieldSideDecorator from "./FieldSideDecorator";
-import RoadSideDecorator from "./RoadSideDecorator";
-import CitySideDecorator from "./CitySideDecorator";
-import Tile from "./Tile";
+const FieldSideDecorator=require( "./FieldSideDecorator");
+const RoadSideDecorator=require( "./RoadSideDecorator");
+const CitySideDecorator=require( "./CitySideDecorator");
+const Tile=require( "./Tile");
 
-export default class ValidTiles {
+module.exports= class ValidTiles {
     constructor() {
         // Create SideDecorators for use in initialization.
         this.field_ = new FieldSideDecorator();

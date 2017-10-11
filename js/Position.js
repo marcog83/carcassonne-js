@@ -1,7 +1,7 @@
 /**
  * Created by marcogobbi on 10/10/2017.
  */
-export default class Position {
+module.exports= class Position {
     constructor(dimension1 = 0, dimension2 = 0) {
         if (dimension1 instanceof Position) {
             this.CopyFrom(dimension1);

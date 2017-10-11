@@ -1,6 +1,7 @@
-export default class Surface {
+const Position=require("./Position");
+module.exports= class Surface {
     static get kOriginPosition() {
-        return
+        return new Position();
     }
 
     constructor() {
@@ -153,7 +154,7 @@ export default class Surface {
         }
 
 // The position is no longer open since the new tile is there so remove it
-// from the open_positions_.
+//=require( the open_positions_.
 //std::remove(open_positions_.begin(), open_positions_.end(), position);
         this.open_positions_ = this.open_positions_.filter(p => {
             return p != position;
@@ -181,7 +182,7 @@ export default class Surface {
         // Put all of the position's neighbor positions into a temporary variable.
         var possible_positions = this.GetNeighborPositions(position);
 
-        // Create a container to put all of the open positions from
+        // Create a container to put all of the open positions=require(
         // possible_positions in.
         var open_positions = [];
 

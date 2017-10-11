@@ -1,6 +1,6 @@
-import {shuffle} from "./utility";
+const {shuffle}=require( "./utility");
 
-export default class Bag {
+module.exports= class Bag {
     constructor() {
 
     }
@@ -15,7 +15,7 @@ export default class Bag {
 
     Draw() {
         // Get a tile.
-        // Remove that tile from the rest of the tiles.
+        // Remove that tile=require( the rest of the tiles.
         var tile = this.tiles_.pop();
 
 

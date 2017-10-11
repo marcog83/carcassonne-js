@@ -1,9 +1,9 @@
-import TopSide from "./TopSide";
-import RightSide from "./RightSide";
-import BottomSide from "./BottomSide";
-import LeftSide from "./LeftSide";
+const TopSide=require( "./TopSide");
+const RightSide=require( "./RightSide");
+const BottomSide=require( "./BottomSide");
+const LeftSide=require( "./LeftSide");
 
-export default class Tile {
+module.exports= class Tile {
     static get kNoRotation() {
         return 0
     }

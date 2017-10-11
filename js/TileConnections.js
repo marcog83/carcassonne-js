@@ -1,7 +1,7 @@
 /**
  * Created by marcogobbi on 10/10/2017.
  */
-export default class TileConnections {
+module.exports= class TileConnections {
     constructor(top_to_right = false, top_to_bottom = false,
                 top_to_left = false, top_to_middle = false,
                 right_to_bottom = false, right_to_left = false,

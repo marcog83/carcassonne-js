@@ -1,4 +1,4 @@
-export default class SideConnections {
+module.exports= class SideConnections {
     constructor(src) {
         this.clockwise_ = false;
         this.across_ = false;

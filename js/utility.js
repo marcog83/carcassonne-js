@@ -1,4 +1,4 @@
-export const shuffle = function (arr) {
+exports.shuffle = function (arr) {
     var a=arr.slice(0);
     var j, x, i;
     for (i = a.length; i; i--) {

@@ -1,14 +1,9 @@
-import TerrainSegment from "./TerrainSegment";
-export default class RoadSegment extends TerrainSegment {
-    constructor(src) {
-        super(src);
-        if(src){
-            this.CopyFrom(src);
-        }
-    }
+const TerrainSegment=require( "./TerrainSegment");
+module.exports= class RoadSegment extends TerrainSegment {
+
 
     Clone() {
-        return new RoadSegment(this);
+        return new RoadSegment( );
     }
 };
 

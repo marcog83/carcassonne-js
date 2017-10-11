@@ -1,8 +1,8 @@
-import TripleTerrainSideDecorator from "./TripleTerrainSideDecorator";
-import TerrainSideDecorator from "./TerrainSideDecorator";
-import FieldSegment from "./terrain/FieldSegment";
-import RoadSegment from "./terrain/RoadSegment";
-export default class RoadSideDecorator extends TripleTerrainSideDecorator {
+const TripleTerrainSideDecorator=require( "./TripleTerrainSideDecorator");
+const TerrainSideDecorator=require( "./TerrainSideDecorator");
+const FieldSegment=require( "./terrain/FieldSegment");
+const RoadSegment=require( "./terrain/RoadSegment");
+module.exports= class RoadSideDecorator extends TripleTerrainSideDecorator {
     constructor(src) {
         super(src);
         this.segment1_ = new FieldSegment();

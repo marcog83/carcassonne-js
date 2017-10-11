@@ -1,14 +1,14 @@
-import TileSet from "./TileSet";
-import Bag from "./Bag";
-import Surface from "./Surface";
-import BlackPlayer from "./player/BlackPlayer";
-import RedPlayer from "./player/RedPlayer";
-import GreenPlayer from "./player/GreenPlayer";
-import {shuffle} from "./utility";
+const TileSet =require( "./TileSet");
+const Bag =require( "./Bag");
+const Surface =require( "./Surface");
+const BlackPlayer =require( "./player/BlackPlayer");
+const RedPlayer =require( "./player/RedPlayer");
+const GreenPlayer =require( "./player/GreenPlayer");
+const {shuffle} =require( "./utility");
 
 var prompt = require('prompt');
 prompt.start();
-export default class Game {
+module.exports= class Game {
     constructor() {
         this.surface_ = new Surface();
         this.bag_ = new Bag();
@@ -33,7 +33,7 @@ export default class Game {
         prompt.get({
             properties: {
                 players: {
-                    description: "How many players?",
+                    description: "How many players?\n",
                     type: 'number',
                     required: true
                 }
@@ -48,6 +48,7 @@ export default class Game {
             console.log('  Players: ' + player_count);
 
             this.CreatePlayers_(player_count);
+            this.Play();
         });
 
 
@@ -76,7 +77,7 @@ export default class Game {
         console.log("Playing Game...");
         var fps = 50;
 
-        var run = () => {
+        const run = () => {
 
             /* While the bag is not empty... */
 
@@ -92,7 +93,7 @@ export default class Game {
                         console.log(`It is the ${i}'s turn.\n`);
 
 
-                        // Draw a tile from the bag
+                        // Draw a tile =require( the bag
                         this.Draw_();
 
                         // Render any tiles that are already placed as well as displaying
@@ -108,7 +109,7 @@ export default class Game {
                 }
             }
         };
-        var _intervalId = setInterval(run, 1000 / fps);
+        const _intervalId = setInterval(run, 1000 / fps);
 // Start the game loop
 
 
@@ -121,7 +122,7 @@ export default class Game {
             return;
         }
 
-        // Draw a tile from the bag and place it in current_tile_
+        // Draw a tile =require( the bag and place it in current_tile_
         this.current_tile_ = this.bag_.Draw();
         console.log("Player has drawn a " + this.current_tile_);
     }
@@ -171,7 +172,7 @@ export default class Game {
         //     // If hint mode is turned on display only open positions where
         //     // current tile will fit.
         //
-        //     // accept input from user as to where the tile will be placed.
+        //     // accept input =require( user as to where the tile will be placed.
         //     console.log("(-1 to rotate): ");
         //
         //     var i = 0;

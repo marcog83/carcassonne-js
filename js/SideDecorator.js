@@ -1,9 +1,9 @@
 /**
  * Created by marcogobbi on 10/10/2017.
  */
-import Side from "./Side";
+const Side=require( "./Side");
 
-export default class SideDecorator extends Side {
+module.exports= class SideDecorator extends Side {
     constructor(src) {
 
         super(src);
@@ -21,7 +21,7 @@ export default class SideDecorator extends Side {
 
     CopyFrom(src) {
         // FIX: Clone returns a specific side but a generic connection?
-        console.log(src)
+      //  console.log(src)
         this.side_ = src.side_.Clone();
     }
 
