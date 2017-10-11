@@ -1,3 +1,8 @@
+import TopSide from "./TopSide";
+import RightSide from "./RightSide";
+import BottomSide from "./BottomSide";
+import LeftSide from "./LeftSide";
+
 export default class Tile {
     static get kNoRotation() {
         return 0
@@ -205,7 +210,7 @@ export default class Tile {
         const bottom_side = this.GetAdjustedBottomSide();
         const in_top_side = in_bottom_tile.GetAdjustedTopSide();
 
-        if (bottom_side->IsPotentialTerrainMatch( * in_top_side))
+        if (bottom_side.IsPotentialTerrainMatch(  in_top_side))
         {
             return true;
         }

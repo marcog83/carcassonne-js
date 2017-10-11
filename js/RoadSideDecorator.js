@@ -1,5 +1,7 @@
 import TripleTerrainSideDecorator from "./TripleTerrainSideDecorator";
 import TerrainSideDecorator from "./TerrainSideDecorator";
+import FieldSegment from "./terrain/FieldSegment";
+import RoadSegment from "./terrain/RoadSegment";
 export default class RoadSideDecorator extends TripleTerrainSideDecorator {
     constructor(src) {
         super(src);

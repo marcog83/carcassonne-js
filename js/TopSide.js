@@ -3,6 +3,7 @@
  */
 import Side from "./Side";
 import TopSideConnections from "./TopSideConnections";
+import TerrainSegment from "./terrain/TerrainSegment";
 export default class TopSide extends Side {
     constructor(src) {
         super(src);

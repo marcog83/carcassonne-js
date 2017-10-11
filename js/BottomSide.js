@@ -1,5 +1,6 @@
 import Side from "./Side";
 import BottomSideConnections from "./BottomSideConnections";
+import TerrainSegment from "./terrain/TerrainSegment";
 
 export default class BottomSide extends Side {
     constructor(...args) {

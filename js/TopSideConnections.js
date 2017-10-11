@@ -1,3 +1,5 @@
+import SideConnections from "./SideConnections";
+
 export default class TopSideConnections extends SideConnections{
     constructor(src) {
         super(src);

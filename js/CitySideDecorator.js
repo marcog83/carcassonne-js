@@ -1,5 +1,6 @@
 import TerrainSideDecorator from "./TerrainSideDecorator";
 import Side from "./Side";
+import CitySegment from "./terrain/CitySegment";
 export default class CitySideDecorator extends TerrainSideDecorator {
     constructor(src) {
         super(src);

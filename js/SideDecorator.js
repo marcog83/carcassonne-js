@@ -2,19 +2,26 @@
  * Created by marcogobbi on 10/10/2017.
  */
 import Side from "./Side";
+
 export default class SideDecorator extends Side {
     constructor(src) {
+
         super(src);
-        this.side_;
-        if (src instanceof Side) {
-            this.side_ = src;
-        } else if (src instanceof SideDecorator) {
-            this.CopyFrom(src);
+        //  this.side_;
+        if (src) {
+            if (src instanceof Side) {
+                this.side_ = src;
+            } else if (src instanceof SideDecorator) {
+
+                this.CopyFrom(src);
+            }
         }
+
     }
 
     CopyFrom(src) {
         // FIX: Clone returns a specific side but a generic connection?
+        console.log(src)
         this.side_ = src.side_.Clone();
     }
 

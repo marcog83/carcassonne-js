@@ -6,6 +6,8 @@ import RedPlayer from "./player/RedPlayer";
 import GreenPlayer from "./player/GreenPlayer";
 import {shuffle} from "./utility";
 
+var prompt = require('prompt');
+prompt.start();
 export default class Game {
     constructor() {
         this.surface_ = new Surface();
@@ -27,8 +29,28 @@ export default class Game {
     }
 
     SetupPlayers_() {
-        var player_count = 2;
-        this.CreatePlayers_(player_count);
+
+        prompt.get({
+            properties: {
+                players: {
+                    description: "How many players?",
+                    type: 'number',
+                    required: true
+                }
+
+            }
+        }, (err, result) => {
+            if (err) {
+                return console.error(err);
+            }
+            var player_count = result.players;
+            console.log('Command-line input received:');
+            console.log('  Players: ' + player_count);
+
+            this.CreatePlayers_(player_count);
+        });
+
+
     }
 
     CreatePlayers_(number_of_players) {
@@ -42,7 +64,7 @@ export default class Game {
         open_players.push(new GreenPlayer());
 
         // Shuffle them to randomize the colors.
-        open_players=shuffle(open_players);
+        open_players = shuffle(open_players);
         // Save the desired number of players into the actual players vector
         for (var i = 0; i < number_of_players; i++) {
             this.players_.push(open_players.pop());
@@ -52,35 +74,43 @@ export default class Game {
 
     Play() {
         console.log("Playing Game...");
+        var fps = 50;
 
-        while (!(this.bag_.IsEmpty()) /* While the bag is not empty... */) {
-            // Cycle through players continuously until there are no more tiles
-            var l = this.players_.length;
-            for (var i = 0; i < l; i++) {
-                if (!this.bag_.IsEmpty()){
-                    console.log(`It is the ${i}'s turn.\n`);
+        var run = () => {
+
+            /* While the bag is not empty... */
+
+            if (this.bag_.IsEmpty()) {
+                // To stop the game, use the following:
+                clearInterval(_intervalId);
+                console.log("The bag is empty...\n");
+            } else {
+                // Cycle through players continuously until there are no more tiles
+                var l = this.players_.length;
+                for (var i = 0; i < l; i++) {
+                    if (!this.bag_.IsEmpty()) {
+                        console.log(`It is the ${i}'s turn.\n`);
 
 
-                    // Draw a tile from the bag
-                    this.Draw_();
+                        // Draw a tile from the bag
+                        this.Draw_();
 
-                    // Render any tiles that are already placed as well as displaying
-                    // any open positions.
-                    this.surface_.Render();
+                        // Render any tiles that are already placed as well as displaying
+                        // any open positions.
+                        this.surface_.Render();
 
-                    // Let player choose a position to place the tile
-                    this.PlaceTile_();
+                        // Let player choose a position to place the tile
+                        this.PlaceTile_();
 
-                    // Lets the player place a follower if they desire.
-                    this.PlaceFollower_();
+                        // Lets the player place a follower if they desire.
+                        this.PlaceFollower_();
+                    }
                 }
             }
-            // for (std::vector<Player>::iterator it = players_.begin();
-            // it != players_.end() && !(bag_.IsEmpty()); ++it) {
-            //
-            // }
-        }
-        // console.log("The bag is empty...\n");
+        };
+        var _intervalId = setInterval(run, 1000 / fps);
+// Start the game loop
+
 
     }
 
@@ -98,73 +128,113 @@ export default class Game {
 
     PlaceTile_() {
         var choice;//Position
-        do {
-            // Get open positions and display to player.
-            console.log("Choose where to place the tile: \n");
 
+        prompt.get({
+            properties: {
+                i: {
+                    description: "Choose where to place the tile (-1 to rotate):  \n",
+                    type: 'number',
+                    required: true
+                }
 
-            //std::cout << ;
-            //std::cout << surface_.open_positions().ToString() << std::endl;
-
-            // If hint mode is turned on display only open positions where
-            // current tile will fit.
-
-            // accept input from user as to where the tile will be placed.
-            console.log("(-1 to rotate): ");
-
-            var i=0;
-            //std::cin >> i;
-
-
+            }
+        }, (err, result) => {
+            if (err) {
+                return console.error(err);
+            }
+            var i = result.i;
+            console.log('Command-line input received:');
+            console.log('  i: ' + i);
             if (i === -1) {
                 this.current_tile_.Rotate();
-                continue;
+               // continue;
             }
 
             choice = this.surface_.open_positions()[i];
             if (this.surface_.IsTileFit(choice, this.current_tile_)) {
                 this.surface_.PlaceTile(choice, this.current_tile_);
-                break;
+              //  break;
             }
 
-        } while (true);
+           // this.CreatePlayers_(player_count);
+        });
+
+
+        // do {
+        //     // Get open positions and display to player.
+        //     console.log("Choose where to place the tile: \n");
+        //
+        //
+        //     //std::cout << ;
+        //     //std::cout << surface_.open_positions().ToString() << std::endl;
+        //
+        //     // If hint mode is turned on display only open positions where
+        //     // current tile will fit.
+        //
+        //     // accept input from user as to where the tile will be placed.
+        //     console.log("(-1 to rotate): ");
+        //
+        //     var i = 0;
+        //     //std::cin >> i;
+        //
+        //
+        //
+        //
+        // } while (true);
 
         this.current_tile_ = null;
     }
 
     PlaceFollower_() {
-        console.log("Do you wish to place a follower?(y/n): ");
-        // std::cout << "Do you wish to place a follower?(y/n): ";
+
+        prompt.get({
+            properties: {
+                wants_to_place: {
+                    description: "Do you wish to place a follower?(y/n): ",
+                    type: 'string',
+                    required: true
+                }
+
+            }
+        }, (err, result) => {
+            if (err) {
+                return console.error(err);
+            }
+            var wants_to_place = result.wants_to_place;
+            console.log('Command-line input received:');
+            console.log('  wants_to_place: ' + wants_to_place);
+            if (wants_to_place === "y") {
+                return;
+            }
+            console.log("Which side?(t,r,b,l): ");
 
 
-        var wants_to_place = "";
+            var side_to_place = "";
+            if (side_to_place === "t") {
+
+            }
+
+            else if (side_to_place === "r") {
+
+            }
+
+            else if (side_to_place === "b") {
+
+            }
+
+            else if (side_to_place === "l") {
+
+            }
+
+            else {
+
+            }
+
+        });
 
 
-        if (wants_to_place === "y") {
-            return;
-        }
-        console.log("Which side?(t,r,b,l): ");
 
 
-        var side_to_place = "";
-        if (side_to_place === "t") {
 
-        }
-
-        else if (side_to_place === "r") {
-
-        }
-
-        else if (side_to_place === "b") {
-
-        }
-
-        else if (side_to_place === "l") {
-
-        }
-
-        else {
-
-        }
     }
 }
